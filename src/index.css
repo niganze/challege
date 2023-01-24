@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@1,700&display=swap');
+
+img {
+  max-width: 100%;
+}
+ul{
+  list-style-type: none;
+}
+body {
+  margin: 0;
+  font-family: Epilogue,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.text-container {
+  flex: 1; /* take up all the remaining space */
+  padding-right: 1rem;
+}
+
+.image-container {
+  /* fixed width for image */
+  width: 50%;
+}

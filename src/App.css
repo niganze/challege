@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.text-container {
+  flex: 1; 
+  padding-right: 1rem;
+  font-size: medium;
+}
+
+.image-container {
+  width: 50%;
+}
+.bigger {
+  width: 150%;
+  height: 150%;
+}
+.h {
+  font-size: 5000px;
+  font-weight: bold !important;
+}
+.header {
+  font-size: 5em;
+  font-weight: bold;
+}
+.buttom {
+  background-color:black;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.buttom:hover {
+  background-color: black;
+  opacity: 0.75;
+}
+
+.buttom:active {
+  transform: scale(0.95);
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.menu_bar nav {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.menu_bar nav button {
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    margin-right: 10px;
+}
+@media only screen and (min-width: 992px) {
+  .menu_bar div:nth-of-type(2) { /* Select the second div containing the menu */
+      display: flex; /* Hide the menu */
+  }
+}
+@media only screen and (min-width: 992px) {
+  .hidden{
+  display:flex;
+}
+}
+.p-5 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar{
+  display: flex;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  /* left: 0; */
+  bottom:0;
+  width: 50%;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+
+}
+.navbar.open{
+  top: 5rem;
+  z-index: 99;
+  /* background-color: white;  */
+}
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  .menu-buttom {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.hidden {
+  display: none;
+  visibility: hidden; 
+}
+
+@media (min-width :1024px) {
+.navbar{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: start;
+  justify-self: flex-start;
+  width: auto;
+  padding: 0;
+  z-index: auto;
+  
+}  
+.navbar.open {
+  top: 0;
+  background-color: transparent;
+   z-index: auto;
+}
+}
