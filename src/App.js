@@ -1,11 +1,8 @@
-
-
-
 import { useState } from "react"
 import mobile from "./images/image-hero-mobile.png"
 import desktop from "./images/image-hero-desktop.png"
-import audiophile from "./images/client-databiz.svg"
-import databiz from "./images/client-audiophile.svg"
+import audiophile from "./images/client-audiophile.svg"
+import databiz from "./images/client-databiz.svg"
 import maker from "./images/client-maker.svg"
 import meet from "./images/client-meet.svg"
 import logo from "./images/logo.svg"
@@ -16,118 +13,148 @@ import closeMenu from "./images/icon-close-menu.svg"
 import todolist from "./images/icon-todo.svg"
 import calendar from "./images/icon-calendar.svg"
 import reminders from "./images/icon-reminders.svg"
+
 import planning from "./images/icon-planning.svg"
+import {createBrowserRouter ,createRoutesFromElements,Route,Link,Outlet, RouterProvider} from "react-router-dom"
 
-import './App.css';
-
+import "./App.css"
+import Home from "./pages/Home";
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import About from "./pages/About"
+// import Alain from "./pages/Alain"
+import Careers from "./pages/Careers"
 function App() {
-  const[openFeatures, setopenFeatures] = useState(false)
-  const[openCompany, setopenCompany] = useState(false)
-  const handledOpenMenu =() =>{
+  const [openFeatures, setOpenFeatures] = useState(false)
+  const [openCompany, setOpenCompany] = useState(false)
+
+  const handleOpenMenu = () => {
     const navbar = document.querySelector(".navbar")
-    const menuButtom =document.querySelector(".menu-button")
-    navbar.classList.toggle ("open")
-    if (navbar.classList.contains("open")){
-      menuButtom.src = closeMenu
-    }else {
-      menuButtom.src =menuOpen
+    const menuButton = document.querySelector(".menu-button")
+    navbar.classList.toggle("open")
+    if (navbar.classList.contains("open")) {
+      menuButton.src = closeMenu
+    } else {
+      menuButton.src = menuOpen
     }
   }
-  return ( 
-  
-    <>
-   <header className="p-5 flex items-center justify-between ">
-    <div className="flex">
+  const router =createBrowserRouter(
+    createRoutesFromElements(
+      <Route  path="/" element={<>
+          <header className="p-5 flex items-center justify-between">
+        <div className="lg:flex lg:items-start lg:justify-start">
+          <img src={logo} alt="" className="lg:mr-5" />
+          <nav className="navbar">
+            <div>
+              <button
+                onClick={() => setOpenFeatures(!openFeatures)}
+                className="flex items-center justify-start "
 
-    <div className="lg:flex lg:items-start lg:justify-start">
-      <img src ={logo} alt="" className="lg:mr-5"/>
-      </div>
-      <div>
-      <nav className="navbar open">
-       <div>
-        <button onClick={() => setopenFeatures(!openFeatures)}>
-          Features {openFeatures? <img src={chevronUp} alt=""className="ml-2"/>:
-          <img src={chevronDown}/>}</button>
-        {openFeatures &&
-         <ul className="mt-2 ml-3 lg:ml-0 p-3 lg:p-3 lg:shadow">
-        <li className=""><img src={todolist} alt="mr-2"className=""/>Todo list</li>
-        <li className=""><img src={calendar}alt="mr-2"className=""/>calender</li>
-        <li className=""><img src={reminders}alt="mr-2"className=""/>reminders</li>
-        <li className=""><img src={planning}alt="mr-2"className=""/>planning</li>
-        </ul>}
-       </div>
-
-       <div>
-        <button onClick={() => setopenCompany(!openCompany)}>Company
-        {openCompany ? 
-        <img src ={chevronUp}alt=""className=""/>:<img src={chevronDown}/>}
-       </button>
-       {openCompany&&
-       <ul className="mt-2 ml-3 lg:ml-0 p-3 lg:p-3 lg:shadow">
-        <li className="flex items-center justify-start text-sm mb-2">History</li>
-        <li className="flex items-center justify-start text-sm mb-2">ourteam</li>
-        <li className="flex items-center justify-start text-sm mb-2">blog</li>
-        
-        </ul>}
-       </div>
-       <div><button>Careers</button></div>
-       <div><button>About</button></div>
-      </nav>
-    </div>
- 
- <div className="hidden lg:block">
-  <buttom onclick={handledOpenMenu}>
-    <img src={menuOpen} alt=""
-    className="menu-buttom"/>
-  </buttom>
- </div>
-
-
- </div>
-
-    <div className="">
-      <button>Login</button>
-      <button>sign up</button>
-    </div>
-   </header>
-
-
-
-
-
-
-
-
-
-    <section className="container">
-    <div className="text-container">
-      <article className="text-center md:text-left">
-      
-        <h1 className="header">Make<br/> remote work</h1>
-        
-        <p>Get your team in sync, no matter your location. Streamline processes, 
-                create team rituals, and watch productivity soar.</p>
-                <button class="buttom">Learn more</button>
-                <br/>
-              
-                <ul className="menu">
-                  <li><img src={audiophile} alt=""/></li>
-                  <li><img src={databiz} alt=""/></li>
-                  <li><img src={maker} alt=""/></li>
-                  <li><img src={meet} alt=""/></li>
+              >
+                Features{" "}
+                {openFeatures ? (
+                  <img src={chevronUp} alt="" className="ml-2" />
+                ) : (
+                  <img src={chevronDown} alt="" className="ml-2" />
+                )}
+              </button>
+              {openFeatures && (
+                <ul className="mt-2 ml-3 lg:ml-0 lg:p-3 lg:shadow">
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    <img src={todolist} alt="" className="mr-2" /> Todo List
+                  </li>
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    <img src={calendar} alt="" className="mr-2" /> Calendar
+                  </li>
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    <img src={reminders} alt="" className="mr-2" /> Reminders
+                  </li>
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    <img src={planning} alt="" className="mr-2" /> Planning
+                  </li>
                 </ul>
-      </article>
-      </div>
-      <div className="image-container">
-      <picture>
-        <source media="(min-width:500px)" srcSet={desktop} />
-        <img src={mobile} alt=""/>
-      </picture>
-      </div>
-    </section>
-    
+              )}
+            </div>
+
+            <div>
+              <button
+                onClick={() => setOpenCompany(!openCompany)}
+                className="flex items-center justify-start"
+              >
+                Company{" "}
+                {openCompany ? (
+                  <img src={chevronUp} alt="" className="ml-2" />
+                ) : (
+                  <img src={chevronDown} alt="" className="ml-2" />
+                )}
+              </button>
+              {openCompany && (
+                <ul className="mt-2 ml-3 lg:ml-0 lg:p-3 lg:shadow">
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    History
+                  </li>
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    Our Team
+                  </li>
+                  <li className="flex items-center justify-start text-sm mb-2">
+                    Blog
+                  </li>
+                </ul>
+              )}
+            </div>
+            <div className="mb-2 lg:mb-0">
+              <Link to="/Careers">
+              <button>Careers</button>
+              </Link>
+              
+            </div>
+            <div>
+              <Link to="/About">
+              <button>About</button>
+              </Link>
+            </div>
+             <div className="mb-2 lg:mb-0">
+              {/* <Link to ="/Alain"> 
+            <button>ALAIN</button>
+            </Link> */}
+            </div>
+          </nav>
+        </div>
+
+        <div className="lg:hidden">
+          <button onClick={handleOpenMenu}>
+            <img src={menuOpen} alt="" className="menu-button" />
+          </button>
+        </div>
+
+        <div className="hidden lg:block">
+         <Link to="/login">
+          <button className="mr-10 opacity-75">login</button>
+          </Link>
+          <Link to="/register">
+          <button className="border-2 border-black opacity-75 px-6 py-2 rounded-2xl"><a href="">Register</a></button>
+          </Link>
+        </div>
+      </header>
+      <Outlet/>
+       </>}>
+        <Route index element={<Home/>} />
+        <Route  path="/login" element={<Login/>} />
+        <Route  path="/register" element={<Register/>} />
+        <Route path="/About"  element={<About/>} />
+        {/* <Route path="/Alain"  element={<Alain/>} /> */}
+        <Route path="/Careers"  element={<Careers/>} />
+      </Route>
+    )
+      
+  )
+
+
+  return (
+    <>
+    <RouterProvider router={router}/>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

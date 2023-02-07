@@ -1,0 +1,52 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1em;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+  }
+  
+  .buttont[type="submit"] {
+    padding: 0.5em 1em;
+    background-color: lightgray;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  @media (max-width: 600px) {
+    form {
+      padding: 0.5em;
+    }
+  
+    label {
+      font-size: 0.8em;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      font-size: 0.8em;
+    }
+  }
+  
